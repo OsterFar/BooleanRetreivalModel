@@ -14,8 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
+from . import views
+import simplexQuery
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.home,name="home"),
+    #path('search/ComplexQuery',views.complx,name="complx"),
+    path('ComplexQUery/<queryy>/' ,include("complexQuery.urls") , name="ComplexQUery" ),
+    path('SimpleQuery/<queryy>/' ,include("simplexQuery.urls") , name="SimpleQuery" ),
+    path('Proximity_Query/<queryy>/' ,include("ProximityQuery.urls") , name="Proximity_Query" ),
+    #path('search/ComplexQUery/', views.ComplexQUery, name='ComplexQUery'),
+    path('okey/' ,views.okey, name="okey" ),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %} 
+
+<div class = "container-fluid" style="/* margin: 50px; */margin-right: 0px;margin-top: 50vw;margin-bottom: 50vw;" >
+    <center>
+    <br>
+
+    <a class="navbar-brand" href="{% url 'home' %}">
+                <img class="logo" src="{% static 'images/Logo.png' %}">
+                SearchHere
+    </a>
+
+
+
+    <nav> <h1>Result</h1>
+    {% for i in value%}
+        {{i}}
+    {% endfor %}
+    </nav>
+
+    <h1>Most Relevant Result </h1>
+
+        <p>{{st}}</p>
+
+    </center>
+</div>
+{%endblock%}

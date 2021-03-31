@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %} 
+
+<div class = "container-fluid" style="/* margin: 50px; */margin-right: 0px;margin-top: 50vw;margin-bottom: 50vw;" >
+    <center> <h3>Search Query </h3> </center>
+    <br>
+    <form method='POST' style="display:flex; justify-content:center;">
+
+        {% csrf_token %}
+        
+        <input type="text" name="QueryVal">
+        <br>
+        <button class="btn btn-outline-secondary" type="submit ">submit</button>
+        
+
+    </form>
+</div>    
+{%endblock%}
